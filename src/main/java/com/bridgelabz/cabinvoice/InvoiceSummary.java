@@ -3,13 +3,18 @@ package com.bridgelabz.cabinvoice;
 import java.util.Objects;
 
 public class InvoiceSummary {
-    private final int numOfRides;
-    private final double totalFare;
-    private final double avgFare;
-    public InvoiceSummary(int numOfRides,double totalFare) {
-        this.numOfRides=numOfRides;
-        this.totalFare=totalFare;
-        this.avgFare=this.totalFare/this.numOfRides;
+    int numOfRides;
+    double totalFare;
+    double avgFare;
+
+    public InvoiceSummary(int numberOfRides, double totalFare) {
+        this.numOfRides = numberOfRides;
+        this.totalFare = totalFare;
+    }
+
+    public InvoiceSummary getInvoiceSummary() {
+        this.avgFare = this.totalFare / this.numOfRides;
+        return this;
     }
 
     @Override
@@ -24,4 +29,5 @@ public class InvoiceSummary {
     public int hashCode() {
         return Objects.hash(numOfRides, totalFare, avgFare);
     }
+
 }
